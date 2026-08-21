@@ -1,0 +1,17 @@
+# Build trees and installer output
+build
+build_x64
+build_x86
+output
+
+# The DoubleTalk PC firmware ROM is proprietary to RC Systems and is NOT
+# redistributable. Users supply their own dump; see README.md. This entry is
+# deliberate - do not remove it to "fix" a build.
+bin/doubletalkpc.bin
+
+# Generated audio samples
+samples
+
+# Python cache from the exploratory harness
+__pycache__
+*.pyc

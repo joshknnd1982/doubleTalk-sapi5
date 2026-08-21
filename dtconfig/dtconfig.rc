@@ -1,0 +1,94 @@
+// SPDX-License-Identifier: BSD-3-Clause
+#include <windows.h>
+#include "resource.h"
+
+// Tab order is resource order. Each label is placed immediately before the
+// control it names, which is what makes MSAA/UIA report that label as the
+// control's accessible name - so a screen reader announces "Articulation,
+// combo box, 5" rather than just "combo box, 5".
+//
+// Every mnemonic below is unique across the whole dialog, so Alt+letter jumps
+// straight to a control instead of cycling between two that share a letter.
+
+IDD_CONFIG DIALOGEX 0, 0, 320, 286
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "DoubleTalk PC Configuration"
+FONT 9, "Segoe UI", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Voice:", IDC_LBL_VOICE, 8, 10, 104, 8
+    COMBOBOX        IDC_VOICE, 116, 8, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Fi&lter (output smoothing):", IDC_LBL_FILTER, 8, 26, 104, 8
+    COMBOBOX        IDC_FILTER, 116, 24, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "&Tone:", IDC_LBL_TONE, 8, 42, 104, 8
+    COMBOBOX        IDC_TONE, 116, 40, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "&Articulation:", IDC_LBL_ARTIC, 8, 58, 104, 8
+    COMBOBOX        IDC_ARTIC, 116, 56, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "&Expression:", IDC_LBL_EXPR, 8, 74, 104, 8
+    COMBOBOX        IDC_EXPR, 116, 72, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Formant fre&quency:", IDC_LBL_FORMANT, 8, 90, 104, 8
+    COMBOBOX        IDC_FORMANT, 116, 88, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Rever&b:", IDC_LBL_REVERB, 8, 106, 104, 8
+    COMBOBOX        IDC_REVERB, 116, 104, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "&Rate (speed):", IDC_LBL_RATE, 8, 122, 104, 8
+    COMBOBOX        IDC_RATE, 116, 120, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "&Pitch:", IDC_LBL_PITCH, 8, 138, 104, 8
+    COMBOBOX        IDC_PITCH, 116, 136, 196, 200, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Volu&me:", IDC_LBL_VOLUME, 8, 154, 104, 8
+    COMBOBOX        IDC_VOLUME, 116, 152, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Rate b&oost:", IDC_LBL_BOOST, 8, 170, 104, 8
+    COMBOBOX        IDC_BOOST, 116, 168, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "A&udio output rate:", IDC_LBL_OUTRATE, 8, 186, 104, 8
+    COMBOBOX        IDC_OUTRATE, 116, 184, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Lo&g detail:", IDC_LBL_LOGLEVEL, 8, 202, 104, 8
+    COMBOBOX        IDC_LOGLEVEL, 116, 200, 196, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Preview te&xt:", IDC_LBL_PREVIEWTEXT, 8, 218, 104, 8
+    EDITTEXT        IDC_PREVIEWTEXT, 116, 216, 196, 14, ES_AUTOHSCROLL | WS_TABSTOP
+
+    PUSHBUTTON      "&Speak preview", IDC_SPEAK, 8, 240, 72, 16
+    PUSHBUTTON      "Reset t&his voice", IDC_RESETVOICE, 84, 240, 72, 16
+    PUSHBUTTON      "Restore all &defaults", IDC_RESETALL, 160, 240, 76, 16
+    PUSHBUTTON      "Open log &folder", IDC_OPENLOGS, 240, 240, 72, 16
+
+    LTEXT           "", IDC_STATUS, 8, 262, 240, 16
+    DEFPUSHBUTTON   "&Close", IDOK, 262, 262, 50, 16
+END
+
+IDI_APP ICON "dtconfig.ico"
+
+1 VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0,0
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_APP
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName",      "DoubleTalk PC SAPI5"
+            VALUE "FileDescription",  "DoubleTalk PC Configuration"
+            VALUE "FileVersion",      "1.0.0.0"
+            VALUE "InternalName",     "DoubleTalkConfig"
+            VALUE "OriginalFilename", "DoubleTalkConfig.exe"
+            VALUE "ProductName",      "DoubleTalk PC SAPI5"
+            VALUE "ProductVersion",   "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
