@@ -63,6 +63,11 @@ ArchitecturesInstallIn64BitMode=x64compatible
 
 WizardStyle=classic
 SetupLogging=yes
+
+; Shown as a standard, screen-reader-friendly wizard page. Worth the extra
+; click here: it is where a user is told that the bundled firmware ROM belongs
+; to RC Systems and is not covered by this project's licence.
+LicenseFile=..\LICENSE
 UninstallDisplayIcon={app}\{#ConfigExe}
 UninstallDisplayName={#AppName}
 DisableWelcomePage=no
@@ -106,7 +111,12 @@ Source: "{#BuildX64}\dt_render.exe"; DestDir: "{app}"; \
 Source: "{#BuildX86}\dt_render.exe"; DestDir: "{app}"; \
     Flags: ignoreversion; Check: not Is64BitInstallMode
 
-Source: "..\README.md"; DestDir: "{app}"; DestName: "README.txt"; Flags: ignoreversion isreadme
+; ---- documentation ---------------------------------------------------------
+; CREDITS is installed alongside the README so the attribution travels with the
+; binaries, not just with the source repository.
+Source: "..\README.md";  DestDir: "{app}"; DestName: "README.txt";  Flags: ignoreversion isreadme
+Source: "..\CREDITS.md"; DestDir: "{app}"; DestName: "CREDITS.txt"; Flags: ignoreversion
+Source: "..\LICENSE";    DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\DoubleTalk PC Configuration"; Filename: "{app}\{#ConfigExe}"; \
