@@ -156,7 +156,9 @@ firmware, its command set, and the eight voice names.
 
 ## Licensing and the firmware ROM
 
-The wrapper is BSD-3-Clause — see [LICENSE](LICENSE).
+The code written for this project is licensed under the MIT License — see
+[LICENSE](LICENSE). The third-party portions keep their own terms, and their
+notices are in [NOTICE.md](NOTICE.md).
 
 `doubletalkpc.bin`, the 512 KB firmware ROM, is **proprietary to RC Systems and
 is not covered by that licence.** It is not in this repository. It is bundled
