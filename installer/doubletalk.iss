@@ -117,6 +117,8 @@ Source: "{#BuildX86}\dt_render.exe"; DestDir: "{app}"; \
 Source: "..\README.md";  DestDir: "{app}"; DestName: "README.txt";  Flags: ignoreversion isreadme
 Source: "..\CREDITS.md"; DestDir: "{app}"; DestName: "CREDITS.txt"; Flags: ignoreversion
 Source: "..\LICENSE";    DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
+; NOTICE carries the third-party notices (BSD 3-Clause) that must travel with the binaries.
+Source: "..\NOTICE.md";  DestDir: "{app}"; DestName: "NOTICE.txt";  Flags: ignoreversion
 
 [Icons]
 Name: "{group}\DoubleTalk PC Configuration"; Filename: "{app}\{#ConfigExe}"; \
